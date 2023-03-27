@@ -482,14 +482,14 @@ def generate_candlestick_graph(
     )
     fig.add_trace(candles, 1, 1)
 
-    longs = create_scatter(data, 'enter_long', 'green', 'up')
-    exit_longs = create_scatter(data, 'exit_long', 'red', 'down')
-    shorts = create_scatter(data, 'enter_short', 'blue', 'down')
-    exit_shorts = create_scatter(data, 'exit_short', 'violet', 'up')
+    # longs = create_scatter(data, 'enter_long', 'green', 'up')
+    # exit_longs = create_scatter(data, 'exit_long', 'red', 'down')
+    # shorts = create_scatter(data, 'enter_short', 'blue', 'down')
+    # exit_shorts = create_scatter(data, 'exit_short', 'violet', 'up')
 
-    for scatter in [longs, exit_longs, shorts, exit_shorts]:
-        if scatter:
-            fig.add_trace(scatter, 1, 1)
+    # for scatter in [longs, exit_longs, shorts, exit_shorts]:
+    #     if scatter:
+    #         fig.add_trace(scatter, 1, 1)
 
     # Add Bollinger Bands
     fig = plot_area(fig, 1, data, 'bb_lowerband', 'bb_upperband',
@@ -505,14 +505,14 @@ def generate_candlestick_graph(
     fig = add_areas(fig, 1, data, plot_config['main_plot'])
     fig = plot_trades(fig, trades)
     # sub plot: Volume goes to row 2
-    volume = go.Bar(
-        x=data['date'],
-        y=data['volume'],
-        name='Volume',
-        marker_color='DarkSlateGrey',
-        marker_line_color='DarkSlateGrey'
-    )
-    fig.add_trace(volume, 2, 1)
+    # volume = go.Bar(
+    #     x=data['date'],
+    #     y=data['volume'],
+    #     name='Volume',
+    #     marker_color='DarkSlateGrey',
+    #     marker_line_color='DarkSlateGrey'
+    # )
+    # fig.add_trace(volume, 2, 1)
     # add each sub plot to a separate row
     for i, label in enumerate(plot_config['subplots']):
         sub_config = plot_config['subplots'][label]
