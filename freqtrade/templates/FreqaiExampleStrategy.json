@@ -1,6 +1,9 @@
 {
   "strategy_name": "FreqaiExampleStrategy",
   "params": {
+    "stoploss": {
+      "stoploss": -0.05
+    },
     "trailing": {
       "trailing_stop": false,
       "trailing_stop_positive": null,
@@ -11,22 +14,16 @@
       "max_open_trades": 1
     },
     "buy": {
-      "std_dev_multiplier_buy": 1
+      "std_dev_multiplier_buy": 3
     },
     "sell": {
-      "std_dev_multiplier_sell": 1.5
+      "std_dev_multiplier_sell": 3
     },
     "protection": {},
     "roi": {
-      "0": 0.218,
-      "24": 0.07200000000000001,
-      "44": 0.024,
-      "51": 0
-    },
-    "stoploss": {
-      "stoploss": -0.328
+      "0": 0.0075
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2023-03-26 07:40:58.260043+00:00"
+  "export_time": "2023-03-29 11:28:55.355484+00:00"
 }
