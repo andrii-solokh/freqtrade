@@ -9,4 +9,4 @@ echo "Metric:" $OPTIMIZE_METRIC
 echo "Spaces:" $OPTIMIZE_SPACES
 echo "Epochs:" $OPTIMIZE_EPOCHS
 
-freqtrade hyperopt --strategy $STRATEGY --hyperopt-loss $OPTIMIZE_METRIC --spaces $OPTIMIZE_SPACES --timerange $OPTIMIZE_TIMERANGE -e $OPTIMIZE_EPOCHS -c $CONFIGURATION
+python -m debugpy --listen 5678 freqtrade hyperopt --strategy $STRATEGY --hyperopt-loss $OPTIMIZE_METRIC --spaces $OPTIMIZE_SPACES --timerange $OPTIMIZE_TIMERANGE -e $OPTIMIZE_EPOCHS -c $CONFIGURATION

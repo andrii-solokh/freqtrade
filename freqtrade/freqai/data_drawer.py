@@ -469,6 +469,10 @@ class FreqaiDataDrawer:
             save_path / f"{dk.model_filename}_trained_dates_df.pkl"
         )
 
+        dk.data_dictionary["train_labels"].to_pickle(
+            save_path / f"{dk.model_filename}_trained_labels_df.pkl"
+        )
+
         if self.freqai_info["feature_parameters"].get("principal_component_analysis"):
             cloudpickle.dump(
                 dk.pca, open(dk.data_path / f"{dk.model_filename}_pca_object.pkl", "wb")

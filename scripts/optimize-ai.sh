@@ -11,4 +11,4 @@ echo "Epochs:" $OPTIMIZE_EPOCHS
 echo "Strategy path:" $STRATEGY_PATH
 echo "Model:" $MODEL
 
-freqtrade hyperopt --logfile temp/log --strategy $STRATEGY --strategy-path $STRATEGY_PATH --config $CONFIGURATION --freqaimodel $MODEL --timerange $OPTIMIZE_TIMERANGE --hyperopt-loss $OPTIMIZE_METRIC --space $OPTIMIZE_SPACES -e $OPTIMIZE_EPOCHS
+python -m debugpy --listen 5678 freqtrade hyperopt --logfile temp/log --strategy $STRATEGY --strategy-path $STRATEGY_PATH --config $CONFIGURATION --freqaimodel $MODEL --timerange $OPTIMIZE_TIMERANGE --hyperopt-loss $OPTIMIZE_METRIC --space $OPTIMIZE_SPACES -e $OPTIMIZE_EPOCHS

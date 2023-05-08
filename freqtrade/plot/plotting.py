@@ -505,14 +505,14 @@ def generate_candlestick_graph(
     fig = add_areas(fig, 1, data, plot_config['main_plot'])
     fig = plot_trades(fig, trades)
     # sub plot: Volume goes to row 2
-    # volume = go.Bar(
-    #     x=data['date'],
-    #     y=data['volume'],
-    #     name='Volume',
-    #     marker_color='DarkSlateGrey',
-    #     marker_line_color='DarkSlateGrey'
-    # )
-    # fig.add_trace(volume, 2, 1)
+    volume = go.Bar(
+        x=data['date'],
+        y=data['volume'],
+        name='Volume',
+        marker_color='DarkSlateGrey',
+        marker_line_color='DarkSlateGrey'
+    )
+    fig.add_trace(volume, 2, 1)
     # add each sub plot to a separate row
     for i, label in enumerate(plot_config['subplots']):
         sub_config = plot_config['subplots'][label]
