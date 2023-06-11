@@ -3,6 +3,7 @@ from functools import reduce
 from typing import Dict
 
 import talib.abstract as ta
+from talib import add_all_ta_features
 from pandas import DataFrame
 from technical import qtpylib
 
@@ -88,6 +89,9 @@ class FreqaiExampleStrategy(IStrategy):
         dataframe["%-sma-period"] = ta.SMA(dataframe, timeperiod=period)
         dataframe["%-ema-period"] = ta.EMA(dataframe, timeperiod=period)
 
+        dataframe["%-ema-period"] = ta.EMA(dataframe, timeperiod=period)
+
+
         bollinger = qtpylib.bollinger_bands(
             qtpylib.typical_price(dataframe), window=period, stds=2.2
         )
@@ -172,6 +176,10 @@ class FreqaiExampleStrategy(IStrategy):
         """
         dataframe["%-day_of_week"] = dataframe["date"].dt.dayofweek
         dataframe["%-hour_of_day"] = dataframe["date"].dt.hour
+
+        dataframe = add_all_ta_features(
+            dataframe, open="open", high="high", low="low", close="close", volume="volume",
+            fillna=True)
         return dataframe
 
     def set_freqai_targets(self, dataframe: DataFrame, metadata: Dict, **kwargs):
